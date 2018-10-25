@@ -299,21 +299,21 @@ void AList::promptUser()
         cout << endl << getWeek() << endl
             << "The current day is " << getDay() << endl
             << getDailyList() << endl
-            << "Enter 'D' for daily summary" << endl
-            << "Enter 'W' for weekly summary" << endl
-            << "Enter 'N' to go to the next day" << endl
+            << "Enter 'D' or 'Day' for daily summary" << endl
+            << "Enter 'W' or 'Week' for weekly summary" << endl
+            << "Enter 'N' or 'Next' to go to the next day" << endl
             << "Enter a numerical reading to add it to the current day" << endl;
         cin >> input;
         cout << endl;
-        if (input == "D" || input == "d")
+        if (input == "D" || input == "d" || input == "Day" || input == "day")
         {
             cout << getDailyList().daySummary() << endl;
         }
-        else if (input == "W" || input == "w")
+        else if (input == "W" || input == "w" || input == "Week" || input == "week")
         {
             cout << weekSummary() << endl;
         }
-        else if (input == "N" || input == "n")
+        else if (input == "N" || input == "n" || input == "Next" || input == "next")
         {
             if (curr == 13) // outputs both summaries on the last day
             {
