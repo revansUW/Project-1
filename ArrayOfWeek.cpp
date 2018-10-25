@@ -31,17 +31,18 @@ bool AList::isEmpty() const
     return listSize == 0;
 }
 
-// returns the linked list for the current day
-LList& AList::modifyDailyList()
-{
-    LList& dayList = *listArray[curr];
-    return dayList;
-}
-
 // returns the day's list
 LList AList::getDailyList()
 {
     LList dayList = *listArray[curr];
+    return dayList;
+}
+
+// returns a pass-by-ref version of the day's list
+// this function is private
+LList& AList::modifyDailyList()
+{
+    LList& dayList = *listArray[curr];
     return dayList;
 }
 
