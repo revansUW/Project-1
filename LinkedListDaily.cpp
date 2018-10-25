@@ -32,7 +32,7 @@ bool LList::empty() const
     return first_ == NULL;
 }
 
-// add a new node in the first position
+// add a new node in the last position
 void LList::insert(float x)
 {
     if (x > 0) 
