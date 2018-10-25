@@ -93,7 +93,7 @@ float	AList::sumWeeklyReadings()
     int temp = curr;
     curr = 0;
     float sum = 0;
-    while(curr < 14)
+    while(curr < MAX_SIZE)
     {
         sum += getDailyList().sum();
         curr++;
@@ -108,7 +108,7 @@ float	AList::maxWeeklyReading()
     int temp = curr;
     curr = 0;
     float max = getDailyList().maxReading();
-    while (curr < 14)
+    while (curr < MAX_SIZE)
     {
         if (max < getDailyList().maxReading())
         {
@@ -126,7 +126,7 @@ float	AList::minWeeklyReading()
     int temp = curr;
     curr = 0;
     float min = getDailyList().minReading();
-    while (curr < 14)
+    while (curr < MAX_SIZE)
     {
         if (min > getDailyList().minReading())
         {
@@ -150,7 +150,7 @@ int	AList::countWeeklyReadings()
     int temp = curr;
     curr = 0;
     int readings = 0;
-    while (curr < 14)
+    while (curr < MAX_SIZE)
     {
         readings += getDailyList().size();
         curr++;
@@ -229,7 +229,7 @@ string AList::getDaySpecific(int day) const
     }
     else
     {
-        return "Invalid curr value";
+        return "Invalid day value";
     }
 }
 
@@ -296,7 +296,7 @@ void AList::promptUser()
 {
     string input;
     cout << "Enter 'Q' to quit at any time" << endl;
-    while (curr < 14) {
+    while (curr < MAX_SIZE) {
         cout << endl << getWeek() << endl
             << "The current day is " << getDay() << endl
             << getDailyList() << endl
@@ -316,7 +316,7 @@ void AList::promptUser()
         }
         else if (input == "N" || input == "n" || input == "Next" || input == "next")
         {
-            if (curr == 13) // outputs both summaries on the last day
+            if (curr == (MAX_SIZE - 1) // outputs both summaries on the last day
             {
                 cout << getDailyList().daySummary() << endl
                     << weekSummary() << endl;
