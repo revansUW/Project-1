@@ -35,21 +35,24 @@ bool LList::empty() const
 // add a new node in the first position
 void LList::insert(float x)
 {
-    if (!empty())
+    if (x > 0) 
     {
-        Node * ptr = first_;
-        Node * last = first_;
-        ptr = ptr->next_;
-        while (ptr != NULL)
+        if (!empty())
         {
-            last = last->next_;
+            Node * ptr = first_;
+            Node * last = first_;
             ptr = ptr->next_;
+            while (ptr != NULL)
+            {
+                last = last->next_;
+                ptr = ptr->next_;
+            }
+            last->next_ = new Node(x, ptr);
         }
-        last->next_ = new Node(x, ptr);
-    }
-    else
-    {
-        first_ = new Node(x, first_);
+        else
+        {
+            first_ = new Node(x, first_);
+        }
     }
 }
 
